@@ -1,0 +1,17 @@
+services:
+  backend:
+    ports:
+      - "127.0.0.1:18080:18080"
+    entrypoint:
+      - java
+      - -Xms256m
+      - -Xmx512m
+      - -XX:+UseG1GC
+      - -XX:+ExitOnOutOfMemoryError
+      - -Duser.timezone=Asia/Shanghai
+      - -jar
+      - app.jar
+
+  web:
+    ports:
+      - "127.0.0.1:5173:3000"
